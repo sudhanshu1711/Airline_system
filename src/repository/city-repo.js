@@ -16,6 +16,7 @@ class CityRepo {
                     id:id
                 }
             })
+            return city
         } catch (error) {
          throw error   
         }
@@ -30,12 +31,13 @@ class CityRepo {
     }
       async updateCity(id,data){
         try {
-            const city = await city.update(data,{
+            const city = await City.update(data,{
                 where:{
                     id:id
                 }
             })
-            return city 
+            const updatedCity = await City.findByPk(id);
+             return updatedCity;
         } catch (error) {
              throw error            
         }

@@ -2,11 +2,11 @@ const {CityRepo} = require('../repository/index.js')
 
 class CityService {
       constructor(){
-        this.CityRepo = new CityRepo()
+        this.cityRepo = new CityRepo()
       }
       async createCity(data){
         try {
-            const city = this.CityRepo.createCity(data)
+            const city = this.cityRepo.createCity(data)
               return city
         } catch (error) {
             throw error
@@ -14,7 +14,7 @@ class CityService {
       }
       async deleteCity(id){
          try {
-            const city = this.CityRepo.deleteCity(id)
+            const city = this.cityRepo.deleteCity(id)
             return city           
         } catch (error) {
             throw error
@@ -22,7 +22,7 @@ class CityService {
       }
       async updateCity(id,data){
            try {
-            const city = this.CityRepo.updateCity(id,data)
+            const city = this.cityRepo.updateCity(id,data)
             return city
         } catch (error) {
             throw error
@@ -30,7 +30,7 @@ class CityService {
       }
       async getCity(id){
             try {
-             const city = this.CityRepo.getCity(id)
+             const city = this.cityRepo.getCity(id)
              return city
         } catch (error) {
             throw error
