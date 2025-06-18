@@ -10,6 +10,14 @@ class CityRepo {
             throw error
         }
     }
+    async createCities(data) {
+        try {
+            const cities = await City.bulkCreate(data)
+            return cities            
+        } catch (error) {
+            throw error
+        }
+    }
     async deleteCity(id){
         try {
             const city = await City.destroy({

@@ -44,6 +44,14 @@ class CityService {
           throw error
         }
       }
+      async createCities (data){
+        try {
+          const cities = this.cityRepo.createCities(data)
+          return cities
+        } catch (error) {
+          throw error
+        }
+      }
     }
 
     module.exports = CityService
