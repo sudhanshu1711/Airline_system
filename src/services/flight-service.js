@@ -18,6 +18,14 @@ class FlightService{
             throw error
         }
     }
+    async getAllFlightData(filter){
+        try {
+           const flights = this.flightRepo.getAllFlight(filter)
+           return flights 
+        } catch (error) {
+            throw error
+        }
+    }
 }
 
 module.exports = FlightService
