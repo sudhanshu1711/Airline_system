@@ -23,7 +23,16 @@ const {FlightService} = require('../services/index.js')
  }
 const getAll =async(req,res)=>{
       try{
-        const response = await flightService.getAllFlightData(req.query)
+        let flightRequestData={
+          flightNumber:req.body.flightNumber,
+          airlineId:req.body.airlineId,
+          departureAirportId:req.body.departureAirportId,
+          arrivalAirportId:req.body.arrivalAirportId,
+          arrivalTime:req.body.arrivalTime,
+          departureTime:req.body.departureTime,
+          price:req.body.price
+        }
+        const response = await flightService.getAllFlightData(flightRequestData)
           return res.status(201).json({
             data:response,
             success:true,
