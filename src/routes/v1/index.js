@@ -1,5 +1,5 @@
 const express =require('express')
-const {CityController} = require('../../controllers/index.js')
+const {CityController,FlightController} = require('../../controllers/index.js')
 
 const router = express.Router()
 
@@ -9,5 +9,5 @@ router.delete('/city/:id',CityController.destroy)
 router.get('/city/:id',CityController.get)
 router.get('/city',CityController.getAll)
 router.patch('/city/:id',CityController.update)
-
+router.post('/flights',FlightController.createFlight)
 module.exports = router

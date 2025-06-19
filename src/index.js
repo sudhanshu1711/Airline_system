@@ -9,10 +9,7 @@ const setUpAndStartServer = async ()=>{
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({extended:true}))
     app.use('/api',ApiRoutes)
-    app.listen(PORT,async()=>{
-        if(process.env.SYNC_DB){
-            db.sequelize.sync({alter:true})
-        }
+    app.listen(PORT,async()=>{0
         console.log(`server started at ${PORT}`)
     })
 }
