@@ -1,6 +1,5 @@
 const {FlightRepo,AirlineRepo} = require('../repository/index.js')
 const {compareTime} = require('../utils/helper.js')
-
 class FlightService{
     constructor(){
         this.airlineRepo = new AirlineRepo()
