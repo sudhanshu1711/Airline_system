@@ -46,6 +46,16 @@ class FlightRepo {
             throw error
         }
     }
+    async updateFlight(id,data){
+        try {
+            const flight = await  FlightDeets.update(data,{
+                where:{id:id}
+            })
+            return flight
+        } catch (error) {
+            throw error
+        }
+    }
 }
 
 module.exports = FlightRepo

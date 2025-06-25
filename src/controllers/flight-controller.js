@@ -50,4 +50,41 @@ const getAll =async(req,res)=>{
     })
       }
 }
- module.exports = {createFlight,getAll}
+const get = async(req,res)=>{
+      try {
+         const response = await flightService.getFlight(req.params.id)
+          return res.status(SuccessCodes.OK).json({
+            data:response,
+            success:true,
+            error:{},
+            message:"Successfully fetched flight"
+        })
+      } catch (error) {
+        //console.error("Flight creation error:", error)  // Log the full error
+        return res.status(500).json({
+         data: {},
+         success: false,
+         message: "Not able to get flight",
+         error: error
+       })
+      }
+     } 
+     const update = async(req,res)=>{
+      try {
+        const response = await flightService.updateFlight(req.params.id,req.body)
+        return res.status(SuccessCodes.OK).json({
+          data:response,
+          success:true,
+          error:{},
+          message:"Successfully updated flight"
+      })
+      } catch (error) {
+         return res.status(500).json({
+         data: {},
+         success: false,
+         message: "Not able to update flight",
+         error: error
+       })
+      }
+     }
+ module.exports = {createFlight,getAll,get,update}
